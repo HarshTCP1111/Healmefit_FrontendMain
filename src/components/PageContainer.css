@@ -1,0 +1,9 @@
+
+/* src/components/PageContainer.css (if you have a separate CSS for the container) */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+  }
+  

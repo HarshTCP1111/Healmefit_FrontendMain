@@ -1,0 +1,56 @@
+.dashboard-container {
+  font-family: Arial, sans-serif;
+  /* line-height: 1.6; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  background-color: #ffffff;
+}
+
+.dashboard {
+  /* max-width: 800px; */
+  /* width: 100%; */
+  padding: 40px;
+  background-color: #fff;
+  /* border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.description {
+  margin-bottom: 30px;
+}
+
+.checklist {
+  margin-top: 20px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-icon {
+  color: #00bfff;
+  margin-right: 12px;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px;
+  }
+
+  .dashboard {
+    padding: 20px;
+  }
+
+  .checklist-item {
+    margin-bottom: 12px;
+  }
+
+  .checkbox-icon {
+    font-size: 20px;
+  }
+}
