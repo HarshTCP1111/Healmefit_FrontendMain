@@ -3,6 +3,12 @@ import './HeroSection.css';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
+  const handleScroll = (elementId) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="hero-section">
@@ -13,15 +19,13 @@ const HeroSection = () => {
           through biometric data analysis. We provide real-time, actionable health insights to 
           mitigate risks and reduce compliance costs.
         </p>
-        <Link 
-          to="services" 
+        <button 
+          onClick={() => handleScroll('services')}
           className="learn-more-button" 
-          smooth={true} 
-          duration={500}
-          style = {{position: 'relative', zIndex: 10, marginTop: 15}}
+          style={{ position: 'relative', zIndex: 10, marginTop: 15 }}
         >
           Learn More
-        </Link>
+        </button>
       </div>
     </div>
   );

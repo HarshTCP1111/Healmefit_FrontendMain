@@ -4,7 +4,7 @@ import './Services.css';
 
 const FocusSection = () => {
   return (
-    <div id="learn-more-section" className="focus-section" >
+    <div className="focus-section" id="services">
       <h1 className="focus-title">Our Focus</h1>
       <p className="focus-subtitle">By providing trucking companies with tools to monitor and improve
             driver health, Heal Me Fit enhances driver well-being and safety.
