@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import logo from '../assets/HMFjpg.jpg';
+import logo from '../assets/HealMeFit-Logo.webp';
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -23,7 +23,10 @@ const Header = () => {
   return (
     <header className={`header ${isSticky ? 'sticky' : ''}`}>
       <div className="logo">
-        <img src={logo} alt="Heal Me Fit" />
+      <a href="/">
+  <img src={logo} alt="Heal Me Fit" style={{ width: '150px' }} />
+</a>
+
       </div>
       <button className="hamburger" onClick={toggleMenu}>
         <div className="line"></div>

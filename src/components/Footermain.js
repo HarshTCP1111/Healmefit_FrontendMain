@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import ContactForm from './ContactForm';
-import HealmeFitlogo from '../assets/HEAL ME FIT-logo transparent.png';
+import HealmeFitlogo from '../assets/HealMeFit-Logo.webp';
 
 const Footer = () => {
   return (

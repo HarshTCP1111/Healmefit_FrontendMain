@@ -1,6 +1,6 @@
 import React from 'react';
 import './CallToAction.css';
-import ctaImage from '../assets/Frame 97.png'; 
+import ctaImage from '../assets/CTA-hmf.webp'; 
 
 const CallToAction = () => {
   return (

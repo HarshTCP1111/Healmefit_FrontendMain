@@ -4,7 +4,6 @@ import HeroSection from './components/HeroSection';
 import PurposeSection from './components/PurposeSection';
 import SolutionSection from './components/SolutionSection';
 import CallToAction from './components/CallToAction';
-import Footer from './components/Footer';
 import Header from './components/Header';
 import FAQPage from './components/FAQPage';
 import Services from './components/Services';

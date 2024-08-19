@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SolutionSection.css';
-import solutionImage from '../assets/Screenshot 2024-07-23 020919.png';
+import solutionImage from '../assets/featutres-hmf.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 

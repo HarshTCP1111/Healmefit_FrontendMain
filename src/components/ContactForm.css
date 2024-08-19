@@ -3,7 +3,7 @@
   padding: 20px;
   border-radius: 8px;
   height: 350px; /* Set a fixed height */
-  overflow-y: auto; 
+  overflow-y: hidden; 
   overflow-x: hidden; /* Add scrolling if content exceeds height */
 }
 
@@ -60,7 +60,7 @@
 }
 
 .phone-dropdown .dial-code {
-  color: #999 !important; /* Slightly darker grey for dial codes */
+  color: #ffffff !important; /* Slightly darker grey for dial codes */
 }
 
 .phone-input .flag-dropdown {
@@ -84,22 +84,18 @@
 .phone-input .selected-flag .arrow {
   color: #fff !important; /* White dropdown arrow */
 }
-
-/* .react-tel-input .flag-dropdown {
-  height: 37px;
-  background: #262626;
-  border: 1px solid #444444;
-  border-right: none;
-} */
 .react-tel-input .flag-dropdown {
   position: absolute;
   top: 0;
   bottom: 0;
   padding: 0;
   height: 37px;
-  background: #262626;
+  background: #262626 !important;
   border: 1px solid #3b3838;
   border-radius: 3px 0 0 3px;
+}
+.react-tel-input .country-list .country.highlight {
+  background-color: #000000 !important;
 }
 .contact-form input,
 .contact-form textarea,

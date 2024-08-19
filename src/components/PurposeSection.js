@@ -1,19 +1,22 @@
 import React from 'react';
 import './PurposeSection.css';
+import hmfPurpose1 from '../assets/purpose_section-hmf1.webp';
+import hmfPurpose2 from '../assets/purpose_section-hmf2.webp';
+import hmfPurpose3 from '../assets/purpose_section-hmf3.webp';
 
 const serviceList = [
   {
-    icon: "https://cdn.easyfrontend.com/pictures/services/service_illustration_1.svg",
+    icon: hmfPurpose1,
     title: "Health Risks and Accident Likelihood",
     description: "Truck drivers with a BMI greater than 35 are 77% more likely to cause accidents.",
   },
   {
-    icon: "https://cdn.easyfrontend.com/pictures/services/service_illustration_3.svg",
+    icon: hmfPurpose2,
     title: "Impact on Road Safety",
     description: "Drivers with poor health are 44% more likely to be involved in accidents.",
   },
   {
-    icon: "https://cdn.easyfrontend.com/pictures/services/service_illustration_2.svg",
+    icon: hmfPurpose3,
     title: "Urgency of Addressing Driver Health",
     description: "A person is injured or killed in a truck accident every 16 minutes.",
   },
