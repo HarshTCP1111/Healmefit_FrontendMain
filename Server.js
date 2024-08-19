@@ -1,64 +1,96 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const xlsx = require('xlsx');
+const cors = require('cors');
 const fs = require('fs');
+const XLSX = require('xlsx');
+const axios = require('axios');
+require('dotenv').config(); // Load environment variables
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-
-// Middleware
+app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-// MongoDB connection
-mongoose.connect('mongodb://localhost:27017/HMF-contact-form-db', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+
+let contacts = []; // Array to store contact data
+
+// POST API to receive contact form data
+app.post('/api/contact', async (req, res) => {
+  const { name, email, phone, message } = req.body;
+
+  // Send data to external API
+  try {
+    await axios.post('https://api.healmefit.io/v1/contact', { name, email, phone, message });
+
+    // Send an email notification
+    sendEmail({ name, email, phone, message });
+
+    // Save contact data to Excel
+    saveToExcel({ name, email, phone, message });
+
+    res.status(200).send({ message: 'Contact details received successfully.' });
+  } catch (error) {
+    console.error('Error posting to external API:', error);
+    res.status(500).send({ message: 'Error submitting contact details.' });
+  }
 });
 
-// Schema and Model
-const contactSchema = new mongoose.Schema({
-  firstName: String,
-  email: String,
-  phoneNumber: String,
-  message: String,
+// GET API to retrieve stored contact data
+app.get('/api/contact', (req, res) => {
+  res.status(200).json(contacts);
 });
 
-const Contact = mongoose.model('Contact', contactSchema);
+// Function to send email
+const sendEmail = ({ name, email, phone, message }) => {
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
 
-// Save to Excel function
-const saveToExcel = (data) => {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: process.env.RECIPIENT_EMAIL,
+    subject: 'New Contact Form Submission',
+    text: `You have a new contact form submission:
+           Name: ${name}
+           Email: ${email}
+           Phone: ${phone}
+           Message: ${message}`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log('Error sending email:', error);
+    } else {
+      console.log('Email sent:', info.response);
+    }
+  });
+};
+
+// Function to save contact data to Excel
+const saveToExcel = (contact) => {
   const filePath = './contacts.xlsx';
+
   let workbook;
   let worksheet;
 
   if (fs.existsSync(filePath)) {
-    workbook = xlsx.readFile(filePath);
-    worksheet = workbook.Sheets[workbook.SheetNames[0]];
-    xlsx.utils.sheet_add_json(worksheet, [data], { skipHeader: true, origin: -1 });
+    workbook = XLSX.readFile(filePath);
+    worksheet = workbook.Sheets['Contacts'];
   } else {
-    worksheet = xlsx.utils.json_to_sheet([data]);
-    workbook = xlsx.utils.book_new();
-    xlsx.utils.book_append_sheet(workbook, worksheet, 'Contacts');
+    workbook = XLSX.utils.book_new();
+    worksheet = XLSX.utils.json_to_sheet([]);
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Contacts');
   }
 
-  xlsx.writeFile(workbook, filePath);
+  XLSX.utils.sheet_add_json(worksheet, [contact], { skipHeader: true, origin: -1 });
+  XLSX.writeFile(workbook, filePath);
 };
 
-// POST route to handle form submission
-app.post('/submit', async (req, res) => {
-  const { firstName, email, phoneNumber, message } = req.body;
-  const newContact = new Contact({ firstName, email, phoneNumber, message });
-
-  try {
-    await newContact.save();
-    saveToExcel(req.body);
-    res.status(201).json({ message: 'Form submitted successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Error saving form data', error });
-  }
-});
-
+// Start the server
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

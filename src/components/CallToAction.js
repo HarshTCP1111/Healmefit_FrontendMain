@@ -11,7 +11,9 @@ const CallToAction = () => {
         </div>
         <div className="cta-content">
           <h2>Join us on our mission to improve driver health and safety</h2>
-          <button className="cta-button">Take a Demo</button>
+          <a href="https://app.healmefit.io" className="cta-button" target="_blank" rel="noopener noreferrer">
+          Take a Demo
+        </a>
         </div>
       </div>
     </section>

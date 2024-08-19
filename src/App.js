@@ -6,9 +6,9 @@ import SolutionSection from './components/SolutionSection';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Features from './components/Features';
 import FAQPage from './components/FAQPage';
-
+import Services from './components/Services';
+import Footermain from './components/Footermain';
 const App = () => {
   return (
     <Router>
@@ -20,8 +20,8 @@ const App = () => {
               <HeroSection />
               <PurposeSection />
               <SolutionSection />
-              <Features />
               <CallToAction />
+              <Services />
             </>
           } />
           <Route path="/faqs" element={
@@ -31,7 +31,7 @@ const App = () => {
             </>
           } />
         </Routes>
-        <Footer />
+        <Footermain />
       </div>
     </Router>
   );

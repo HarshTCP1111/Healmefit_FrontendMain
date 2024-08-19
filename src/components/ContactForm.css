@@ -1,49 +1,142 @@
 .contact-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 400px;
-  margin: auto;
+  height: 350px; /* Set a fixed height */
+  overflow-y: auto; 
+  overflow-x: hidden; /* Add scrolling if content exceeds height */
+}
+
+.form-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
 }
 
 .contact-form {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 10px; /* Add some spacing between the inputs */
 }
 
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 10px;
+.phone-input-container {
+  position: relative;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f7f7f7;
 }
 
-.contact-form input::placeholder, .contact-form textarea::placeholder {
-  color: #bbb;
+.phone-input {
+  width: 100% !important;
+  padding-left: 50px !important; /* Increase padding-left to avoid overlap */
+  padding-right: 12px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  border: 1px solid #444 !important;
+  border-radius: 4px !important;
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Light grey background */
+  color: #fff !important; /* White text */
+  box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.phone-dropdown {
+  background-color: #222 !important; /* Darker dropdown background */
+  border: 1px solid #444 !important;
+  max-height: 200px !important; /* Restrict dropdown height */
+  overflow-y: auto !important; /* Scroll if it exceeds the max height */
+  position: absolute; /* Ensure it stays within the container */
+  z-index: 9999; /* Make sure the dropdown is on top of other elements */
+}
+
+.phone-dropdown .country {
+  color: #fff !important; /* White text for country names */
+  padding: 10px 12px !important;
+}
+
+.phone-dropdown .country:hover {
+  background-color: #444 !important; /* Darker hover effect */
+}
+
+.phone-dropdown .country-name {
+  color: #ccc !important; /* Light grey for country names */
+}
+
+.phone-dropdown .dial-code {
+  color: #999 !important; /* Slightly darker grey for dial codes */
+}
+
+.phone-input .flag-dropdown {
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Match the input background */
+  border: none; /* Remove the default border */
+  border-radius: 4px 0 0 4px; /* Round corners on the left side */
+}
+
+.phone-input .flag-dropdown:focus, .phone-input .flag-dropdown:active {
+  outline: none; /* Remove outline on focus */
+}
+
+.phone-input .selected-flag {
+  background-color: transparent !important; /* Transparent to avoid background overlap */
+}
+
+.phone-input .selected-flag .flag {
+  margin-right: 5px; /* Add spacing between flag and dropdown arrow */
+}
+
+.phone-input .selected-flag .arrow {
+  color: #fff !important; /* White dropdown arrow */
+}
+
+
+
+.contact-form input,
+.contact-form textarea,
+.contact-form .react-tel-input .form-control {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  box-sizing: border-box; /* Make sure inputs take full width */
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #aaa;
+}
+
+.contact-form textarea {
+  height: 50%;
+  resize: vertical;
 }
 
 .contact-form button {
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 16px;
   cursor: pointer;
   border-radius: 4px;
   font-size: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  transition: background-color 0.3s ease-in-out;
 }
 
-@media (max-width: 480px) {
+.contact-form button:hover {
+  background-color: #0056b3;
+}
+
+.success-message {
+  text-align: center;
+  color: #4caf50;
+}
+
+.success-message h4 {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
   .contact-form-container {
-    padding: 1rem;
+    padding: 15px;
   }
 }

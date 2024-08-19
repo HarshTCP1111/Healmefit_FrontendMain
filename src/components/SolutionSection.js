@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './SolutionSection.css';
 import solutionImage from '../assets/Screenshot 2024-07-23 020919.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const SolutionSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -31,12 +33,17 @@ const SolutionSection = () => {
   return (
     <div className="solution-section">
       <h2>Our Solution</h2>
-      <p>Heal Me Fit offers a comprehensive solution to monitor and manage driver health, ensuring a safer and more efficient trucking industry. Our platform includes:</p>
+      <p>Heal Me Fit offers a comprehensive solution to monitor and manage driver health, ensuring a safer and more efficient trucking industry.</p>
       <div className="solution-content">
         <div className="accordion">
           {accordionData.map((item, index) => (
             <div key={index} className={`accordion-item ${activeIndex === index ? 'active' : ''}`}>
-              <h3 onClick={() => handleToggle(index)}>{item.title}</h3>
+              <h3 onClick={() => handleToggle(index)}>
+                {item.title}
+                <span className="accordion-arrow">
+                  <FontAwesomeIcon icon={activeIndex === index ? faChevronUp : faChevronDown} />
+                </span>
+              </h3>
               <p className={activeIndex === index ? 'show' : ''}>{item.content}</p>
             </div>
           ))}
