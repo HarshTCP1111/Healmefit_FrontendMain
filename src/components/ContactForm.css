@@ -24,6 +24,10 @@
   margin-bottom: 10px;
 }
 
+h3.form-title {
+  margin-top: 0px;
+}
+
 .phone-input {
   width: 100% !important;
   padding-left: 50px !important; /* Increase padding-left to avoid overlap */

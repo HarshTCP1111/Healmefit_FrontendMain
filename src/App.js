@@ -8,6 +8,9 @@ import Header from './components/Header';
 import FAQPage from './components/FAQPage';
 import Services from './components/Services';
 import Footermain from './components/Footermain';
+import FAQHero from './components/FAQHero';
+import PageNotFound from './components/404page'; // Import the PageNotFound component
+
 const App = () => {
   return (
     <Router>
@@ -25,10 +28,12 @@ const App = () => {
           } />
           <Route path="/faqs" element={
             <>
-              <HeroSection />
+              <FAQHero />
               <FAQPage />
             </>
           } />
+          {/* Catch-all route for undefined paths */}
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footermain />
       </div>
