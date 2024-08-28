@@ -9,11 +9,15 @@ import FAQPage from './components/FAQPage';
 import Services from './components/Services';
 import Footermain from './components/Footermain';
 import FAQHero from './components/FAQHero';
-import PageNotFound from './components/404page'; // Import the PageNotFound component
+import PageNotFound from './components/404page';
+import ScrollToTop from './components/ScrollToTop'; // Import the ScrollToTop component
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop /> {/* Add ScrollToTop here */}
       <div>
         <Header />
         <Routes>

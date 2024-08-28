@@ -72,10 +72,8 @@
   /* Mobile View */
   @media screen and (max-width: 480px) {
     .faq-hero {
-      padding: 120px 20px 0px 20px;
-      height: 50vh;
-      justify-content: center; /* Centering content vertically */
-      align-items: center; /* Centering content horizontally */
+      padding: 1rem;
+      height: 85vh;
     }
   
     .faq-hero-content {
@@ -84,11 +82,11 @@
     }
   
     .faq-hero h1 {
-      font-size: 28px;
+      font-size: 25px;
     }
-  
+    
     .faq-hero p {
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1.4;
     }
   }

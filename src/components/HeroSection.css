@@ -67,15 +67,15 @@
 @media (max-width: 768px) {
   .hero-section {
     padding: 1rem;
-    height: auto; /* Adjust height for smaller screens */
+    height: 90vh; /* Adjust height for smaller screens */
   }
 
   .hero-section h1 {
-    font-size: 36px; /* Smaller heading on mobile */
+    font-size: 29px; /* Smaller heading on mobile */
   }
 
   .learn-more-button {
-    width: 100%; /* Full-width button on mobile */
+    width: 60%; /* Full-width button on mobile */
     padding: 15px 0; /* Adjusted padding for full-width */
   }
 }

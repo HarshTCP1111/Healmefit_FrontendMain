@@ -1,6 +1,7 @@
 .focus-section {
   text-align: center;
   padding: 40px 20px;
+  margin-bottom: 50px;
   background-color: #ffffff;
 }
 
@@ -34,12 +35,14 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;
+  align-items: center; 
   flex-direction: column;
 }
 
 .focus-icon {
   font-size: 36px;
   margin-bottom: 15px;
+  display: inline-block;
   color: #1FA6E0;
 }
 
@@ -103,18 +106,18 @@
   }
 
   .focus-item {
-    padding: 15px;
+    padding: 15px, 15px,;
   }
 
   .focus-icon {
-    font-size: 28px;
+    font-size: 38px;
   }
 
-  .h2 {
+  .focus-items h2 {
+    font-size: 18px;
+}
+
+  .focus-item p {
     font-size: 14px;
-  }
-
-  .p {
-    font-size: 12px;
   }
 }

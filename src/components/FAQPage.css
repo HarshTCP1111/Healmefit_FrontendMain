@@ -53,3 +53,9 @@
 .faq-arrow.up {
   transform: rotate(180deg);
 }
+
+@media screen and (max-width: 480px) {
+  .faq-page h1 {
+    font-size: 25px;
+}
+}
