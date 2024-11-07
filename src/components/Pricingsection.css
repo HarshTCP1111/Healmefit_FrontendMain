@@ -1,0 +1,17 @@
+
+  .pricing-subtext {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .pricing-heading{
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+
+  }

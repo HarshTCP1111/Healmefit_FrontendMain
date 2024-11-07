@@ -1,8 +1,9 @@
+// CallToAction.js
 import React from 'react';
 import './CallToAction.css';
-import ctaImage from '../assets/CTA-hmf.webp'; 
+import ctaImage from '../assets/CTA-hmf.webp';
 
-const CallToAction = () => {
+const CallToAction = ({ openModal }) => {
   return (
     <section className="cta-wrapper">
       <div className="cta-container">
@@ -11,9 +12,9 @@ const CallToAction = () => {
         </div>
         <div className="cta-content">
           <h2>Join us on our mission to improve driver health and safety</h2>
-          <a href="https://app.healmefit.io" className="cta-button" target="_blank" rel="noopener noreferrer">
-          Take a Demo
-        </a>
+          <button className="cta-button" onClick={openModal}>
+            Take a Demo
+          </button>
         </div>
       </div>
     </section>

@@ -1,23 +1,22 @@
+// Header.js
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 import logo from '../assets/HealMeFit-Logo.webp';
 
-const Header = () => {
+const Header = ({ openModal }) => {
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navMenuRef = useRef(null);
 
   useEffect(() => {
-    // Handle scroll to make the header sticky
     const handleScroll = () => {
       setIsSticky(window.scrollY > 50);
     };
 
-    // Handle click outside to close the mobile menu
     const handleClickOutside = (event) => {
       if (navMenuRef.current && !navMenuRef.current.contains(event.target) && !event.target.closest('.hamburger')) {
-        setIsMenuOpen(false); // Close the menu if clicked outside
+        setIsMenuOpen(false);
       }
     };
 
@@ -50,10 +49,24 @@ const Header = () => {
         <ul>
           <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
           <li><Link to="/faqs" onClick={() => setIsMenuOpen(false)}>FAQs</Link></li>
+          <li><Link 
+      to="/" 
+      onClick={(e) => {
+        e.preventDefault(); // Prevent default link behavior
+        const target = document.getElementById("pricing-section");
+        const offset = -100; // Adjust this value based on your header height
+        const yPosition = target.getBoundingClientRect().top + window.scrollY + offset;
+        window.scrollTo({ top: yPosition, behavior: "smooth" });
+        setIsMenuOpen(false);
+      }}
+    >
+      Pricing
+    </Link></li>
+
         </ul>
-        <a href="https://app.healmefit.io" className="demo-button" target="_blank" rel="noopener noreferrer">
+        <button className="demo-button" onClick={openModal}>
           Take a Demo
-        </a>
+        </button>
       </nav>
     </header>
   );
