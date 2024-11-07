@@ -10,7 +10,8 @@ import Services from './components/Services';
 import Footermain from './components/Footermain';
 import FAQHero from './components/FAQHero';
 import PageNotFound from './components/404page';
-import ScrollToTop from './components/ScrollToTop'; // Import the ScrollToTop component
+import ScrollToTop from './components/ScrollToTop'; 
+import PricingPlans from './components/PricingPlans';// Import the ScrollToTop component
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -25,6 +26,7 @@ const App = () => {
             <>
               <HeroSection />
               <PurposeSection />
+              <PricingPlans />
               <SolutionSection />
               <CallToAction />
               <Services />
