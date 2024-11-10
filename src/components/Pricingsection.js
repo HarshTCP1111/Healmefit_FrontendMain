@@ -25,8 +25,8 @@ const PricingTable = () => {
       Enjoy complete transparency—no hidden fees or unexpected charges.</p>
       <div className="stripe-pricing-table">
         <stripe-pricing-table
-          pricing-table-id="prctbl_1QHbwQLzBmYZ5ITCPWiA5V4V"
-          publishable-key="pk_test_LO1MTdbE3CdH3y37w9azGs3E00ToIhlTU8"
+          pricing-table-id="prctbl_1QJKdCAXJUXvPLdpf2awk2yT"
+          publishable-key="pk_live_51QEGrNAXJUXvPLdpVAN266WQGQFu0cOYZYo9JWxXZV8dFxlSIVJ0C3M0EHWkcULqZ2rtyNAMlHfmvb9dZK7uueOm001iuTWBAl"
         ></stripe-pricing-table>
       </div>
     </div>
